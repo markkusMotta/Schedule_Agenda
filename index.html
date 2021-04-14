@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Front-End</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins';
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            background: radial-gradient( rgb(180, 176, 218), rgb(151, 18, 140));
+            /* background: rgb(196, 162, 206); */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .header {
+            position: absolute; 
+            top: 1rem;
+            font-size: 2rem;
+            text-shadow: 1px 1px 3px rgb(68, 67, 67);
+            letter-spacing: 2px;
+            animation: downTitle 2.5s ease-in-out;
+        }
+
+        .container {
+            position: relative;
+            padding: 1rem .5rem;
+            height: 80vh;   
+            width: 70vw;
+            background: rgb(247, 240, 240);
+            /* overflow: hidden; */
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            border-radius: 20px;
+            box-shadow: 2px 3px 8px rgb(110, 34, 136);
+            transition: .4s ease;
+            animation: showScreen 1.5s ease-out;
+        }
+
+
+        ul {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        ul li {
+            height: 6rem;
+            width: 6rem;
+            text-align: center;
+            background: linear-gradient(45deg, rgb(226, 224, 226), rgb(213, 192, 218));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 1px 3px 6px  rgb(161, 160, 160);
+            transition: .3s ease-in-out;
+        }
+
+        .day {
+            color: rgb(151, 86, 1);   
+            font-weight: 400;
+            text-transform: uppercase; 
+            letter-spacing: .1rem;
+            font-size: 1.2rem;
+            transition: .3s ease-in-out;
+            z-index: 5;
+        }
+/* 
+
+        ul li.tecn div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height:100%;
+            width: 100%;
+            position: absolute;
+            opacity: 0;
+         
+        } */
+
+        ul li.tecn {
+            list-style: none;
+            color: rgb(252, 253, 230);
+            font-weight: 500;
+            overflow: hidden;
+            text-shadow: 1px 1px 3px rgb(160, 159, 159);
+            
+        }
+
+        
+        .text {
+            transition: .7s ease-in-out;
+        }
+
+        a {
+            text-decoration: none;
+            z-index: 1000;
+            color: #fff;
+        }
+
+        /* <!-- hovers --> */
+
+        ul li.tecn:hover {
+            transform: translateY(-10px);
+            box-shadow: none;
+            z-index: 5000;
+        } 
+
+        div li.tecn:hover{
+            background: linear-gradient(45deg, rgb(238, 202, 248), rgb(198, 101, 224));
+            transform: translateY(-15px);
+            box-shadow: 3px 10px 9px  rgb(196, 195, 195);
+        }
+
+        ul:hover li.tecn.purple{
+            background: linear-gradient(45deg, rgb(238, 202, 248), rgb(198, 101, 224));
+        }
+        ul:hover li.tecn.green{
+            background: linear-gradient(45deg, rgb(202, 248, 233), rgb(85, 190, 159));            
+        }
+        
+        ul:hover li.tecn.blue{
+            background: linear-gradient(45deg, rgb(202, 234, 248), rgb(85, 151, 190));            
+        }
+        
+        ul:hover li.tecn.orange{
+            background: linear-gradient(45deg, rgb(248, 234, 202), rgb(190, 162, 85));            
+        }
+
+        /* <!-- @keyframes --> */
+
+        @keyframes downTitle {
+            0% {
+              transform: translateY(-200px);
+              opacity: 0;  
+            }
+            100% {
+              transform: translateY(0px);
+              opacity: 1;  
+            }
+        }
+
+        @keyframes showScreen {
+            0%{
+                transform: translateX(-1000px);
+                opacity: 0;
+            }
+            /* 50%{
+                transform: translateX(100px);
+                opacity: 1;
+            }   
+            70%{
+                transform: translateX(-50px);
+            }
+            80%{
+                transform: translateX(50px);
+            } */
+            100% {
+                transform: tranlateX(0px);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes up{
+            0% {
+                opacity: 1;
+            }
+        
+        
+            45% {
+                transform: translateY(-3.5rem);
+                opacity: 0;
+            }
+        
+            50% {
+                transform: translateY(4rem);
+                opacity:0;
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+        
+        @keyframes upFromBottom{
+            0% {
+                opacity: 1;
+                transform: translateY(4.5rem);
+            }
+        
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+                
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="" class="tile">Front-end Roadmap Schedule</a>
+    </div>
+    <div class="container">
+        <ul class="days even">
+            <a href="#" class="day Mon">Mon</a>
+            <li class="tecn green">
+                <a href="#" class="text">JS</a>
+            </li>
+            <li class="tecn green">       
+                <a href="#" class="text">JS</a>
+            </li>
+            <li class="tecn green">
+                <a href="#" class="text">React</a>
+            </li>
+            <li class="tecn green">
+                <a href="#" class="text">React</a>
+            </li>  
+        </ul>
+        <ul class="days odd">
+            <a href="#" class="day Tues">Tues</a>
+            <li class="tecn purple">
+                <a href="#" class="text">Vue</a>
+            </li>
+            <li class="tecn purple">
+                <a href="#" class="text">Vue</a>
+            </li>
+            <li class="tecn purple">
+                <a href="#" class="text">TS</a>
+            </li>
+            <li class="tecn purple">
+                <a href="#" class="text">TS</a>
+            </li>     
+        </ul>
+        <ul class="days even">
+            <a href="#" class="day Wed">Wed</a>
+            <li class="tecn blue">
+                <a href="#" class="text">TS</a>
+            </li>
+            <li class="tecn blue">
+                <a href="#" class="text">TS</a>
+            </li>
+            <li class="tecn blue">
+                <a href="#" class="text">Git</a>
+            </li>
+            <li class="tecn blue">
+                <a href="#" class="text">Git</a>
+            </li>     
+        </ul>
+        <ul class="days odd">
+            <a href="#" class="day Thur">Thur</a>
+            <li class="tecn green">
+                <a href="#" class="text">Vue</a>
+            </li>
+            <li class="tecn green">
+                <a href="#" class="text">Vue</a>
+            </li>
+            <li class="tecn green">
+                <a href="#" class="text">React</a>
+            </li>
+            <li class="tecn green">
+                <a href="#" class="text">React</a>
+            </li>     
+        </ul>
+        <ul class="days even">
+            <a href="#" class="day Fri">Fri</a>
+            <li class="tecn purple">
+                <a href="#" class="text">Git</a>
+            </li>
+            <li class="tecn purple">
+                <a href="#" class="text">Git</a>
+            </li>
+            <li class="tecn purple">
+                <a href="#" class="text">JS</a>
+            </li>
+            <li class="tecn purple">
+                <a href="#" class="text">JS</a>
+            </li>     
+        </ul>
+        <ul class="days odd">
+            <a href="#" class="day Sat">Sat</a>
+            <li class="tecn blue">
+                <a href="#" class="text">WebPack</a>
+            </li>
+            <li class="tecn blue">
+                <a href="#" class="text">WebPack</a>
+            </li>
+            <li class="tecn blue">
+                <a href="#" class="text">React</a>
+            </li>
+            <li class="tecn blue">
+                <a href="#" class="text">React</a>
+            </li>     
+        </ul>
+        <ul class="days even">
+            <a href="#" class="day Sun">Sun</a>
+            <li class="tecn orange">
+                <a href="#" class="text">Babel</a>
+            </li>
+            <li class="tecn orange">
+                <a href="#" class="text">Babel</a>
+            </li>
+            <li class="tecn orange">
+                <a href="#" class="text">JS</a>    
+            </li>
+            <li class="tecn orange">
+                <a href="#" class="text">JS</a>    
+            </li>     
+        </ul>
+    </div>
+</body>
+</html>
